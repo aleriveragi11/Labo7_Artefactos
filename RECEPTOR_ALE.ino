@@ -35,7 +35,7 @@ Adafruit_SH1106G display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 void setup() {
 
-  Serial.begin(433E6);
+  Serial.begin(115200);
   delay(1000);
 
   Serial.println("RECEPTOR LORA");
@@ -83,7 +83,7 @@ void setup() {
     LoRa.setPins(LORA_SS, -1, -1);
 
 
-  if (!LoRa.begin(433E6)) {
+  if (!LoRa.begin(915E6)) {
 
     Serial.println("ERROR: No se pudo iniciar LoRa");
 
@@ -119,6 +119,7 @@ void loop() {
     procesarMensaje(paquete);
   }
 }
+
 
 // ======================================================
 // PROCESAR MENSAJE
